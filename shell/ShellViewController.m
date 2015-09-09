@@ -51,11 +51,11 @@
 }
 
 - (IBAction)_ls:(id)sender{
-//    if (_inField.text.length > 0) {
-//        _outTextView.text = [[Shell ls:_inField.text] description];
-//    }else{
+    if (_inField.text.length > 0) {
+        _outTextView.text = [[Shell ls:_inField.text] description];
+    }else{
         _outTextView.text = [[Shell ls] description];
-//    }
+    }
 }
 
 - (IBAction)_cat:(id)sender{
