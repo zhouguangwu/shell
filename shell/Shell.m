@@ -51,10 +51,15 @@
 
 + (NSString *)pwd{
     char *buf = malloc(100);
-    getcwd(buf, 101);
-    NSString *pwd = [NSString stringWithUTF8String:buf];
-    free(buf);
-    return pwd;
+    if (getcwd(buf, 101)) {
+        NSString *pwd = [NSString stringWithUTF8String:buf];
+        free(buf);
+        return pwd;
+    }else{
+        perror("pwd出错");
+        free(buf);
+        return nil;
+    }
 }
 
 + (NSString *) cat:(NSString *)file{
